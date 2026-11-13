@@ -1,0 +1,13 @@
+# Render: New + > Blueprint, pick this repository.
+# The free plan sleeps after 15 minutes without visitors; the first person to
+# connect afterwards waits 30-60 seconds while it wakes up (the app retries by itself).
+services:
+  - type: web
+    name: media-overlay-jam
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: "8765"
